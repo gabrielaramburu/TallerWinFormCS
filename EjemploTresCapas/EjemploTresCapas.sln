@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "EjemploTresCapas\Presentacion.csproj", "{1DF25C61-68A8-4447-B721-F26ADDC19FC3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{981BB791-1EAB-41A9-8012-C99A1C3A4326} = {981BB791-1EAB-41A9-8012-C99A1C3A4326}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "LogicaNegocio\Negocio.csproj", "{981BB791-1EAB-41A9-8012-C99A1C3A4326}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF25C61-68A8-4447-B721-F26ADDC19FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF25C61-68A8-4447-B721-F26ADDC19FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF25C61-68A8-4447-B721-F26ADDC19FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF25C61-68A8-4447-B721-F26ADDC19FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981BB791-1EAB-41A9-8012-C99A1C3A4326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981BB791-1EAB-41A9-8012-C99A1C3A4326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981BB791-1EAB-41A9-8012-C99A1C3A4326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981BB791-1EAB-41A9-8012-C99A1C3A4326}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BE38B83-3D25-4CDF-85C6-38DBA99243D6}
+	EndGlobalSection
+EndGlobal

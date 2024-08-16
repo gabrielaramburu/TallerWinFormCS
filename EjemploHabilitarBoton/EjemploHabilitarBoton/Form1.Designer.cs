@@ -32,6 +32,7 @@
             txtValor2 = new TextBox();
             txtValor3 = new TextBox();
             btnContinuar = new Button();
+            btnCancelar = new Button();
             SuspendLayout();
             // 
             // txtValor1
@@ -68,17 +69,29 @@
             btnContinuar.Text = "Continuar";
             btnContinuar.UseVisualStyleBackColor = true;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(603, 255);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(112, 34);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnCancelar);
             Controls.Add(btnContinuar);
             Controls.Add(txtValor3);
             Controls.Add(txtValor2);
             Controls.Add(txtValor1);
             Name = "Form1";
             Text = "Habilitar botón en base a ingreso de datos";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +103,6 @@
         private TextBox txtValor3;
         
         private Button btnContinuar;
+        private Button btnCancelar;
     }
 }

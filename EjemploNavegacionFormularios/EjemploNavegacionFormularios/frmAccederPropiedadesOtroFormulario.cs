@@ -36,5 +36,10 @@ namespace EjemploNavegacionFormularios
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.principal.CambiarTituloEtiquetaDePrueba("este mensaje lo envío desde el formualrio  hijito");
+          }
     }
 }

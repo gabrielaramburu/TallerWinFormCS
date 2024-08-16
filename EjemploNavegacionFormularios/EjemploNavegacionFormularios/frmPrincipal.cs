@@ -37,5 +37,11 @@ namespace EjemploNavegacionFormularios
         {
 
         }
+
+        public void CambiarTituloEtiquetaDePrueba(String texto)
+        {
+            this.etiqueta.Text = texto;
+
+        }
     }
 }

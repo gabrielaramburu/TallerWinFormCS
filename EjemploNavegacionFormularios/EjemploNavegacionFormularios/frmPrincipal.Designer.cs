@@ -33,6 +33,9 @@
             label1 = new Label();
             cboSeleccion = new ComboBox();
             btnAvanzar = new Button();
+            etiqueta = new Label();
+            numericUpDown1 = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // btnAbrirModal
@@ -83,11 +86,30 @@
             btnAvanzar.UseVisualStyleBackColor = true;
             btnAvanzar.Click += btnAvanzar_Click;
             // 
+            // etiqueta
+            // 
+            etiqueta.AutoSize = true;
+            etiqueta.Location = new Point(321, 260);
+            etiqueta.Name = "etiqueta";
+            etiqueta.Size = new Size(320, 25);
+            etiqueta.TabIndex = 5;
+            etiqueta.Text = "loQuieroCambiarDesdeOtroFormulario";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(51, 76);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(180, 31);
+            numericUpDown1.TabIndex = 6;
+            numericUpDown1.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(numericUpDown1);
+            Controls.Add(etiqueta);
             Controls.Add(btnAvanzar);
             Controls.Add(cboSeleccion);
             Controls.Add(label1);
@@ -96,6 +118,7 @@
             Name = "frmPrincipal";
             Text = "Formulario Principal";
             Load += frmPrincipal_Load;
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,6 +129,8 @@
         private Button btnNoModal;
         private Label label1;
         private Button btnAvanzar;
-        protected ComboBox cboSeleccion;
+        public ComboBox cboSeleccion;
+        private Label etiqueta;
+        private NumericUpDown numericUpDown1;
     }
 }

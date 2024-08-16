@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btnMostrar = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnMostrar
@@ -41,11 +42,22 @@
             btnMostrar.UseVisualStyleBackColor = true;
             btnMostrar.Click += btnMostrar_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(475, 300);
+            button1.Name = "button1";
+            button1.Size = new Size(267, 57);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmAccederPropiedadesOtroFormulario
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(810, 432);
+            Controls.Add(button1);
             Controls.Add(btnMostrar);
             Name = "frmAccederPropiedadesOtroFormulario";
             Text = "frmAccederPropiedadesOtroFormulario";
@@ -56,5 +68,6 @@
         #endregion
 
         private Button btnMostrar;
+        private Button button1;
     }
 }

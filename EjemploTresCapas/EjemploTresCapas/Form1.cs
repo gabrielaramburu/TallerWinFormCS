@@ -1,6 +1,9 @@
 
-using Negocio.impl;
-using Negocio;
+using Negocio.dominio;
+using Negocio.servicios;
+using Negocio.servicios.impl;
+using System.ComponentModel;
+
 namespace EjemploTresCapas
 {
     public partial class Form1 : Form
@@ -10,10 +13,23 @@ namespace EjemploTresCapas
             InitializeComponent();
         }
 
-        private void btnInvocarNegocio_Click(object sender, EventArgs e)
+
+        private void btnCargarVehiculos_Click(object sender, EventArgs e)
         {
-            IOperacionesNegocio oper = new MisOperaciones();
-            MessageBox.Show(oper.Saludar());
+            
+            IServiciosNegocio servicios = new MisServicios();
+
+            // La columan Matricula tiene que existir en el control
+            //Tambien la podría crear por código
+            this.dgVehiculos.Columns["Matricula"].DataPropertyName = "Matricula";
+            this.dgVehiculos.Columns["Marca"].DataPropertyName = "Marca";
+            this.dgVehiculos.Columns["Modelo"].DataPropertyName = "Modelo";
+
+            this.dgVehiculos.DataSource = servicios.obtenerVehiculos();
+            this.dgVehiculos.Refresh();
+            
+            
+
         }
     }
 }

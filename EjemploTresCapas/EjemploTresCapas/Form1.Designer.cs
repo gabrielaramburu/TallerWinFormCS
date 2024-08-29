@@ -28,32 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnInvocarNegocio = new Button();
+            dgVehiculos = new DataGridView();
+            btnCargarVehiculos = new Button();
+            Matricula = new DataGridViewTextBoxColumn();
+            Marca = new DataGridViewTextBoxColumn();
+            Modelo = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgVehiculos).BeginInit();
             SuspendLayout();
             // 
-            // btnInvocarNegocio
+            // dgVehiculos
             // 
-            btnInvocarNegocio.Location = new Point(497, 63);
-            btnInvocarNegocio.Name = "btnInvocarNegocio";
-            btnInvocarNegocio.Size = new Size(222, 51);
-            btnInvocarNegocio.TabIndex = 0;
-            btnInvocarNegocio.Text = "Invocar negocio";
-            btnInvocarNegocio.UseVisualStyleBackColor = true;
-            btnInvocarNegocio.Click += btnInvocarNegocio_Click;
+            dgVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgVehiculos.Columns.AddRange(new DataGridViewColumn[] { Matricula, Marca, Modelo });
+            dgVehiculos.Location = new Point(51, 57);
+            dgVehiculos.Name = "dgVehiculos";
+            dgVehiculos.RowHeadersWidth = 62;
+            dgVehiculos.Size = new Size(295, 259);
+            dgVehiculos.TabIndex = 0;
+            // 
+            // btnCargarVehiculos
+            // 
+            btnCargarVehiculos.Location = new Point(470, 57);
+            btnCargarVehiculos.Name = "btnCargarVehiculos";
+            btnCargarVehiculos.Size = new Size(179, 52);
+            btnCargarVehiculos.TabIndex = 1;
+            btnCargarVehiculos.Text = "Cargar Vehiculos";
+            btnCargarVehiculos.UseVisualStyleBackColor = true;
+            btnCargarVehiculos.Click += btnCargarVehiculos_Click;
+            // 
+            // Matricula
+            // 
+            Matricula.HeaderText = "Matricula";
+            Matricula.MinimumWidth = 8;
+            Matricula.Name = "Matricula";
+            Matricula.Width = 150;
+            // 
+            // Marca
+            // 
+            Marca.HeaderText = "Marca";
+            Marca.MinimumWidth = 8;
+            Marca.Name = "Marca";
+            Marca.Width = 150;
+            // 
+            // Modelo
+            // 
+            Modelo.HeaderText = "Modelo";
+            Modelo.MinimumWidth = 8;
+            Modelo.Name = "Modelo";
+            Modelo.Width = 150;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnInvocarNegocio);
+            Controls.Add(btnCargarVehiculos);
+            Controls.Add(dgVehiculos);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dgVehiculos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnInvocarNegocio;
+        private DataGridView dgVehiculos;
+        private Button btnCargarVehiculos;
+        private DataGridViewTextBoxColumn Matricula;
+        private DataGridViewTextBoxColumn Marca;
+        private DataGridViewTextBoxColumn Modelo;
     }
 }

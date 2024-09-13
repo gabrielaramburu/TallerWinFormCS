@@ -22,5 +22,10 @@ namespace Negocio.dominio
             Marca = marca;
             Modelo = modelo;
         }
+
+        public void TocarBocina()
+        {
+
+        }
     }
 }

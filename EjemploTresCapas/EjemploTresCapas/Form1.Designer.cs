@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             dgVehiculos = new DataGridView();
-            btnCargarVehiculos = new Button();
             Matricula = new DataGridViewTextBoxColumn();
             Marca = new DataGridViewTextBoxColumn();
             Modelo = new DataGridViewTextBoxColumn();
+            btnCargarVehiculos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).BeginInit();
             SuspendLayout();
             // 
@@ -40,21 +40,11 @@
             // 
             dgVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgVehiculos.Columns.AddRange(new DataGridViewColumn[] { Matricula, Marca, Modelo });
-            dgVehiculos.Location = new Point(51, 57);
+            dgVehiculos.Location = new Point(28, 31);
             dgVehiculos.Name = "dgVehiculos";
             dgVehiculos.RowHeadersWidth = 62;
-            dgVehiculos.Size = new Size(295, 259);
+            dgVehiculos.Size = new Size(519, 301);
             dgVehiculos.TabIndex = 0;
-            // 
-            // btnCargarVehiculos
-            // 
-            btnCargarVehiculos.Location = new Point(470, 57);
-            btnCargarVehiculos.Name = "btnCargarVehiculos";
-            btnCargarVehiculos.Size = new Size(179, 52);
-            btnCargarVehiculos.TabIndex = 1;
-            btnCargarVehiculos.Text = "Cargar Vehiculos";
-            btnCargarVehiculos.UseVisualStyleBackColor = true;
-            btnCargarVehiculos.Click += btnCargarVehiculos_Click;
             // 
             // Matricula
             // 
@@ -76,6 +66,16 @@
             Modelo.MinimumWidth = 8;
             Modelo.Name = "Modelo";
             Modelo.Width = 150;
+            // 
+            // btnCargarVehiculos
+            // 
+            btnCargarVehiculos.Location = new Point(576, 375);
+            btnCargarVehiculos.Name = "btnCargarVehiculos";
+            btnCargarVehiculos.Size = new Size(179, 52);
+            btnCargarVehiculos.TabIndex = 1;
+            btnCargarVehiculos.Text = "Cargar Vehiculos";
+            btnCargarVehiculos.UseVisualStyleBackColor = true;
+            btnCargarVehiculos.Click += btnCargarVehiculos_Click;
             // 
             // Form1
             // 

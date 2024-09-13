@@ -18,7 +18,5 @@ namespace Negocio.servicios.impl
             _vehiculos.Add(new Vehiculo(1, "sbu 222", "toyota", "corolla"));
             return _vehiculos;
         }
-
-        
     }
 }

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploTresCapas2", "EjemploTresCapas2\EjemploTresCapas2.csproj", "{988F2BAF-4D4A-496C-95E2-1853D437B8BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{5BC13245-5CA7-4669-9631-EC5DA6491283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{988F2BAF-4D4A-496C-95E2-1853D437B8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988F2BAF-4D4A-496C-95E2-1853D437B8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988F2BAF-4D4A-496C-95E2-1853D437B8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988F2BAF-4D4A-496C-95E2-1853D437B8BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BC13245-5CA7-4669-9631-EC5DA6491283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC13245-5CA7-4669-9631-EC5DA6491283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC13245-5CA7-4669-9631-EC5DA6491283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC13245-5CA7-4669-9631-EC5DA6491283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {255CDF8B-B484-4FD1-8048-3FC7A40410A8}
+	EndGlobalSection
+EndGlobal

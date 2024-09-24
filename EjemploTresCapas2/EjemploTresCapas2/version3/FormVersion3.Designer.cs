@@ -30,37 +30,41 @@
         {
             dgVehiculos = new DataGridView();
             groupBox1 = new GroupBox();
+            cboMarcas = new ComboBox();
+            btnNuevo = new Button();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             txtModelo = new TextBox();
-            txtMarca = new TextBox();
             txtMatricula = new TextBox();
             txtId = new TextBox();
-            btnNuevo = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dgVehiculos
             // 
             dgVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgVehiculos.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgVehiculos.Location = new Point(23, 276);
             dgVehiculos.Name = "dgVehiculos";
             dgVehiculos.RowHeadersWidth = 62;
             dgVehiculos.Size = new Size(847, 317);
             dgVehiculos.TabIndex = 0;
+            dgVehiculos.CellClick += dgVehiculos_CellClick;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cboMarcas);
             groupBox1.Controls.Add(btnNuevo);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtModelo);
-            groupBox1.Controls.Add(txtMarca);
             groupBox1.Controls.Add(txtMatricula);
             groupBox1.Controls.Add(txtId);
             groupBox1.Location = new Point(23, 18);
@@ -69,7 +73,24 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Vehiculos";
-           
+            // 
+            // cboMarcas
+            // 
+            cboMarcas.FormattingEnabled = true;
+            cboMarcas.Location = new Point(465, 59);
+            cboMarcas.Name = "cboMarcas";
+            cboMarcas.Size = new Size(291, 33);
+            cboMarcas.TabIndex = 9;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.Location = new Point(704, 186);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(112, 34);
+            btnNuevo.TabIndex = 8;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // label4
             // 
@@ -114,13 +135,6 @@
             txtModelo.Size = new Size(291, 31);
             txtModelo.TabIndex = 3;
             // 
-            // txtMarca
-            // 
-            txtMarca.Location = new Point(465, 59);
-            txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(291, 31);
-            txtMarca.TabIndex = 2;
-            // 
             // txtMatricula
             // 
             txtMatricula.Location = new Point(19, 121);
@@ -136,21 +150,21 @@
             txtId.Size = new Size(291, 31);
             txtId.TabIndex = 0;
             // 
-            // btnNuevo
+            // pictureBox1
             // 
-            btnNuevo.Location = new Point(704, 186);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(112, 34);
-            btnNuevo.TabIndex = 8;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click;
+            pictureBox1.Image = Properties.Resources.underConstruction;
+            pictureBox1.Location = new Point(885, 30);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(293, 250);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
-            // FormVersion2
+            // FormVersion3
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 605);
+            ClientSize = new Size(1222, 605);
+            Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
             Controls.Add(dgVehiculos);
             Name = "FormVersion3";
@@ -159,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -167,7 +182,6 @@
         private DataGridView dgVehiculos;
         private GroupBox groupBox1;
         private TextBox txtModelo;
-        private TextBox txtMarca;
         private TextBox txtMatricula;
         private TextBox txtId;
         private Label label4;
@@ -175,5 +189,7 @@
         private Label label2;
         private Label label1;
         private Button btnNuevo;
+        private ComboBox cboMarcas;
+        private PictureBox pictureBox1;
     }
 }

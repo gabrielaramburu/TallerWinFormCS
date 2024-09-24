@@ -1,6 +1,6 @@
-﻿using Negocio.version2.dominio;
-using Negocio.version2.servicios;
-using Negocio.version2.servicios.impl;
+﻿using Negocio.version3.dominio;
+using Negocio.version3.servicios;
+using Negocio.version3.servicios.impl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,9 +35,18 @@ namespace EjemploTresCapas2.version3
         private void FormVersion3_Load(object sender, EventArgs e)
         {
             cargarGrilla(servicios.obtenerVehiculos());
+            cargarComboMarcas();
             desHabilitoCampoID();
+
+            //no permito que el usuario modifique a mano los datos.
+            this.dgVehiculos.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
+        private void cargarComboMarcas()
+        {
+            this.cboMarcas.Items.Clear();
+            this.cboMarcas.DataSource = servicios.obtenerMarcas();
+        }
         private void cargarGrilla(IList<Vehiculo> vehiculos)
         {
             this.dgVehiculos.DataSource = null; //para que se refresque la grilla
@@ -52,10 +61,12 @@ namespace EjemploTresCapas2.version3
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Marca marca = this.cboMarcas.SelectedItem as Marca;
+
             //la responsabilidad de asignar el ID la tiene la capa de negocio
             Vehiculo nuevoVehiculo = new Vehiculo(
                 this.txtMatricula.Text,
-                this.txtMarca.Text,
+                marca,
                 this.txtModelo.Text);
 
             this.servicios.agregarVehiculo(nuevoVehiculo);
@@ -63,10 +74,25 @@ namespace EjemploTresCapas2.version3
             IList<Vehiculo> vehiculos = servicios.obtenerVehiculos();
             cargarGrilla(vehiculos);
             //es lo mismo hacer cargarGrilla(servicios.obtenerVehiculos());
+        }
 
+        private void dgVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCell celdaId = this.dgVehiculos.Rows[e.RowIndex].Cells[0];
+            DataGridViewCell celdaMatricula = this.dgVehiculos.Rows[e.RowIndex].Cells[1];
+            DataGridViewCell celdaMarca= this.dgVehiculos.Rows[e.RowIndex].Cells[2];
+            DataGridViewCell celdaModelo = this.dgVehiculos.Rows[e.RowIndex].Cells[3];
 
+            this.txtId.Text = celdaId.Value.ToString();
+            this.txtMatricula.Text = celdaMatricula.Value.ToString();
+            this.txtModelo.Text = celdaModelo.Value.ToString();
+            this.cboMarcas.SelectedItem = celdaMarca.Value;
 
-
+            //notas los siguientes problemas:
+            //1) si se hace click en el cabezal se produce un error
+            //2) si se cambia el orden de los atributos en el objeto, este código deja de funcionar
+            //ya que estamos asumiendo que por ejemplo el ID está en la celda 0
+            //Todo esto se puede corregir.
 
 
         }

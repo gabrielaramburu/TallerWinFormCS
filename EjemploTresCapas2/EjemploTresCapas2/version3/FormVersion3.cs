@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,53 +35,47 @@ namespace EjemploTresCapas2.version3
 
         private void FormVersion3_Load(object sender, EventArgs e)
         {
-            cargarGrilla(servicios.obtenerVehiculos());
-            cargarComboMarcas();
-            desHabilitoCampoID();
+            CargarGrilla(servicios.ObtenerVehiculos());
+            CargarComboMarcas();
+            DesHabilitoCampoID();
+            DesHabilitoBotonActualizar();
 
             //no permito que el usuario modifique a mano los datos.
             this.dgVehiculos.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
-        private void cargarComboMarcas()
+        private void CargarComboMarcas()
         {
             this.cboMarcas.Items.Clear();
-            this.cboMarcas.DataSource = servicios.obtenerMarcas();
+            this.cboMarcas.DataSource = servicios.ObtenerMarcas();
         }
-        private void cargarGrilla(IList<Vehiculo> vehiculos)
+        private void CargarGrilla(IList<Vehiculo> vehiculos)
         {
             this.dgVehiculos.DataSource = null; //para que se refresque la grilla
             this.dgVehiculos.DataSource = vehiculos;
         }
 
-        private void desHabilitoCampoID()
+        private void DesHabilitoCampoID()
         {
             this.txtId.Enabled = false;
             this.txtId.BackColor = SystemColors.ControlLight;
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void DesHabilitoBotonActualizar()
         {
-            Marca marca = this.cboMarcas.SelectedItem as Marca;
-
-            //la responsabilidad de asignar el ID la tiene la capa de negocio
-            Vehiculo nuevoVehiculo = new Vehiculo(
-                this.txtMatricula.Text,
-                marca,
-                this.txtModelo.Text);
-
-            this.servicios.agregarVehiculo(nuevoVehiculo);
-
-            IList<Vehiculo> vehiculos = servicios.obtenerVehiculos();
-            cargarGrilla(vehiculos);
-            //es lo mismo hacer cargarGrilla(servicios.obtenerVehiculos());
+            this.btnActualizar.Enabled = false;
         }
 
         private void dgVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //al hacer click tengo que deshabilitar el botón nuevo
+            this.btnAgregar.Enabled = false;
+            // y tengo que prender el botón actualiar
+            this.btnActualizar.Enabled = true;
+
             DataGridViewCell celdaId = this.dgVehiculos.Rows[e.RowIndex].Cells[0];
             DataGridViewCell celdaMatricula = this.dgVehiculos.Rows[e.RowIndex].Cells[1];
-            DataGridViewCell celdaMarca= this.dgVehiculos.Rows[e.RowIndex].Cells[2];
+            DataGridViewCell celdaMarca = this.dgVehiculos.Rows[e.RowIndex].Cells[2];
             DataGridViewCell celdaModelo = this.dgVehiculos.Rows[e.RowIndex].Cells[3];
 
             this.txtId.Text = celdaId.Value.ToString();
@@ -95,6 +90,71 @@ namespace EjemploTresCapas2.version3
             //Todo esto se puede corregir.
 
 
+        }
+
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarDatos();
+
+            this.btnActualizar.Enabled = false;
+            this.btnAgregar.Enabled = true;
+
+        }
+
+        private void LimpiarDatos()
+        {
+            this.txtId.Text = String.Empty;
+            this.txtMatricula.Text = String.Empty;
+            this.txtModelo.Text = String.Empty;
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //obtengo la marca desde el combo
+            Marca marca = this.cboMarcas.SelectedItem as Marca;
+
+            //la responsabilidad de asignar el ID la tiene la capa de negocio
+            Vehiculo nuevoVehiculo = new Vehiculo(
+                this.txtMatricula.Text,
+                marca,
+                this.txtModelo.Text);
+
+            //por medio de la interface le indico al negocio que agregue el vehículo
+            this.servicios.AgregarVehiculo(nuevoVehiculo);
+
+            IList<Vehiculo> vehiculos = servicios.ObtenerVehiculos();
+            CargarGrilla(vehiculos);
+            //es lo mismo hacer cargarGrilla(servicios.obtenerVehiculos());
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(this.txtId.Text); //convierte string to int
+            Marca marca = this.cboMarcas.SelectedItem as Marca;
+
+            Vehiculo vehiculoModificado = new Vehiculo(
+               id,
+               this.txtMatricula.Text,
+               marca,
+               this.txtModelo.Text);
+
+            //en esta caso la interface me devuelve un valor para que pueda saber si 
+            //anduvo todo bien
+            bool actualizadoOk = servicios.ModificarVehiculo(vehiculoModificado);
+            if (!actualizadoOk)
+            {
+                MessageBox.Show("Error","No se pudo borrar el vehiculo");
+            } else
+            {
+                MessageBox.Show( 
+                    "El vehiculo se actualizó correctamente",
+                    "Operación ejecutada",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                //vuelvo a dibujar la grilla
+                CargarGrilla(servicios.ObtenerVehiculos());
+            }
         }
     }
 }

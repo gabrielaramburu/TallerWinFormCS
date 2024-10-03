@@ -15,7 +15,7 @@ namespace Negocio.version2.servicios.impl
 
         public MisServicios() {
             //solo inicializo cuando la lista está vacia
-            //esto es porque todabía no tenemos capa de presentación
+            //esto es porque todabía no tenemos capa de persistencia
             if (_vehiculos.Count == 0)
             {
                 _vehiculos.Add(new Vehiculo(1, "sbu 111", "ford", "kia"));

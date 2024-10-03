@@ -30,8 +30,10 @@
         {
             dgVehiculos = new DataGridView();
             groupBox1 = new GroupBox();
+            btnAgregar = new Button();
+            btnActualizar = new Button();
             cboMarcas = new ComboBox();
-            btnNuevo = new Button();
+            btnLimpiar = new Button();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -39,10 +41,8 @@
             txtModelo = new TextBox();
             txtMatricula = new TextBox();
             txtId = new TextBox();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dgVehiculos
@@ -58,8 +58,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnAgregar);
+            groupBox1.Controls.Add(btnActualizar);
             groupBox1.Controls.Add(cboMarcas);
-            groupBox1.Controls.Add(btnNuevo);
+            groupBox1.Controls.Add(btnLimpiar);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -74,6 +76,26 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Vehiculos";
             // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(465, 186);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(117, 33);
+            btnAgregar.TabIndex = 11;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(588, 186);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(110, 34);
+            btnActualizar.TabIndex = 10;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
             // cboMarcas
             // 
             cboMarcas.FormattingEnabled = true;
@@ -82,15 +104,15 @@
             cboMarcas.Size = new Size(291, 33);
             cboMarcas.TabIndex = 9;
             // 
-            // btnNuevo
+            // btnLimpiar
             // 
-            btnNuevo.Location = new Point(704, 186);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(112, 34);
-            btnNuevo.TabIndex = 8;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click;
+            btnLimpiar.Location = new Point(704, 186);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(112, 34);
+            btnLimpiar.TabIndex = 8;
+            btnLimpiar.Text = "Limipiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // label4
             // 
@@ -150,21 +172,11 @@
             txtId.Size = new Size(291, 31);
             txtId.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.underConstruction;
-            pictureBox1.Location = new Point(885, 30);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(293, 250);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            // 
             // FormVersion3
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1222, 605);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(914, 605);
             Controls.Add(groupBox1);
             Controls.Add(dgVehiculos);
             Name = "FormVersion3";
@@ -173,7 +185,6 @@
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -188,8 +199,9 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnNuevo;
+        private Button btnLimpiar;
         private ComboBox cboMarcas;
-        private PictureBox pictureBox1;
+        private Button btnAgregar;
+        private Button btnActualizar;
     }
 }

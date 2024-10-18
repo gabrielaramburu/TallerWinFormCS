@@ -1,6 +1,6 @@
-﻿namespace EjemploTresCapas2.version3
+﻿namespace EjemploTresCapas2.version4
 {
-    partial class FormVersion3
+    partial class FormVersion4
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             txtModelo = new TextBox();
             txtMatricula = new TextBox();
             txtId = new TextBox();
+            btnBorrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnBorrar);
             groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(btnActualizar);
             groupBox1.Controls.Add(cboMarcas);
@@ -173,16 +175,26 @@
             txtId.Size = new Size(291, 31);
             txtId.TabIndex = 0;
             // 
-            // FormVersion3
+            // btnBorrar
+            // 
+            btnBorrar.Location = new Point(19, 187);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(117, 33);
+            btnBorrar.TabIndex = 12;
+            btnBorrar.Text = "Borrar";
+            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click;
+            // 
+            // FormVersion4
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 605);
             Controls.Add(groupBox1);
             Controls.Add(dgVehiculos);
-            Name = "FormVersion3";
-            Text = "FormVersion3";
-            Load += FormVersion3_Load;
+            Name = "FormVersion4";
+            Text = "FormVersion4";
+            Load += FormVersion4_Load;
             ((System.ComponentModel.ISupportInitialize)dgVehiculos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -204,5 +216,6 @@
         private ComboBox cboMarcas;
         private Button btnAgregar;
         private Button btnActualizar;
+        private Button btnBorrar;
     }
 }

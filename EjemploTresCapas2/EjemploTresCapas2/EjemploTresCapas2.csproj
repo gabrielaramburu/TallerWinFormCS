@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
     <ProjectReference Include="..\Negocio\Negocio.csproj" />
   </ItemGroup>
 
@@ -22,6 +31,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="version3\FormVersion3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="version4\FormVersion4.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

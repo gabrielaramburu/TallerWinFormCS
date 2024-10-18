@@ -34,6 +34,8 @@
             lblVersion2 = new Label();
             btnVersion3 = new Button();
             lblVersion3 = new Label();
+            btnVersion4 = new Button();
+            lblVersion4 = new Label();
             SuspendLayout();
             // 
             // btnVersion1
@@ -71,6 +73,7 @@
             lblVersion2.Size = new Size(702, 52);
             lblVersion2.TabIndex = 3;
             lblVersion2.Text = "label2";
+            lblVersion2.Click += lblVersion2_Click;
             // 
             // btnVersion3
             // 
@@ -90,11 +93,32 @@
             lblVersion3.TabIndex = 5;
             lblVersion3.Text = "label1";
             // 
+            // btnVersion4
+            // 
+            btnVersion4.Location = new Point(47, 286);
+            btnVersion4.Name = "btnVersion4";
+            btnVersion4.Size = new Size(286, 50);
+            btnVersion4.TabIndex = 6;
+            btnVersion4.Text = "Versión 4 (opcional)";
+            btnVersion4.UseVisualStyleBackColor = true;
+            btnVersion4.Click += btnVersion4_Click;
+            // 
+            // lblVersion4
+            // 
+            lblVersion4.AutoSize = true;
+            lblVersion4.Location = new Point(386, 295);
+            lblVersion4.Name = "lblVersion4";
+            lblVersion4.Size = new Size(59, 25);
+            lblVersion4.TabIndex = 7;
+            lblVersion4.Text = "label1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1134, 450);
+            Controls.Add(lblVersion4);
+            Controls.Add(btnVersion4);
             Controls.Add(lblVersion3);
             Controls.Add(btnVersion3);
             Controls.Add(lblVersion2);
@@ -105,6 +129,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -115,5 +140,7 @@
         private Label lblVersion2;
         private Button btnVersion3;
         private Label lblVersion3;
+        private Button btnVersion4;
+        private Label lblVersion4;
     }
 }

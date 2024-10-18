@@ -1,6 +1,6 @@
-﻿using Negocio.version3.dominio;
-using Negocio.version3.servicios;
-using Negocio.version3.servicios.impl;
+﻿using Negocio.version4.dominio;
+using Negocio.version4.servicios;
+using Negocio.version4.servicios.impl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,14 +12,14 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EjemploTresCapas2.version3
+namespace EjemploTresCapas2.version4
 {
-    public partial class FormVersion3 : Form
+    public partial class FormVersion4 : Form
     {
         //En esta versión el contrato con la capa de negocio
         //es un atributo de instancia (para dejarlo disponible en toda la clase)
         private IServiciosNegocio servicios;
-        public FormVersion3()
+        public FormVersion4()
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace EjemploTresCapas2.version3
 
         }
 
-        private void FormVersion3_Load(object sender, EventArgs e)
+        private void FormVersion4_Load(object sender, EventArgs e)
         {
             CargarGrilla(servicios.ObtenerVehiculos());
             CargarComboMarcas();
@@ -64,6 +64,7 @@ namespace EjemploTresCapas2.version3
         private void DesHabilitoBotonActualizar()
         {
             this.btnActualizar.Enabled = false;
+            this.btnBorrar.Enabled = false;
         }
 
         private void dgVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -72,6 +73,7 @@ namespace EjemploTresCapas2.version3
             this.btnAgregar.Enabled = false;
             // y tengo que prender el botón actualiar
             this.btnActualizar.Enabled = true;
+            this.btnBorrar.Enabled = true;
 
             DataGridViewCell celdaId = this.dgVehiculos.Rows[e.RowIndex].Cells[0];
             DataGridViewCell celdaMatricula = this.dgVehiculos.Rows[e.RowIndex].Cells[1];
@@ -99,6 +101,7 @@ namespace EjemploTresCapas2.version3
 
             this.btnActualizar.Enabled = false;
             this.btnAgregar.Enabled = true;
+            this.btnBorrar.Enabled = false;
 
         }
 
@@ -161,6 +164,12 @@ namespace EjemploTresCapas2.version3
         private void dgVehiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            servicios.Borrar(Int32.Parse(this.txtId.Text));
+            CargarGrilla(servicios.ObtenerVehiculos());
         }
     }
 }

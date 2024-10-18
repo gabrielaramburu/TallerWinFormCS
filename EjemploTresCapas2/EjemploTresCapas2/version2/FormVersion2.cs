@@ -25,6 +25,7 @@ namespace EjemploTresCapas2.version2
             //IServicio es el contrato (interface)
             //MisServicios es la implementación (comportamiento)
             servicios = new MisServicios();
+           
         }
 
         private void btnCargar_Click(object sender, EventArgs e)

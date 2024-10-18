@@ -1,6 +1,7 @@
 using EjemploTresCapas2.version1;
 using EjemploTresCapas2.version2;
 using EjemploTresCapas2.version3;
+using EjemploTresCapas2.version4;
 
 namespace EjemploTresCapas2
 {
@@ -24,6 +25,7 @@ namespace EjemploTresCapas2
 
             this.lblVersion2.Text = "Versión que recupera datos y agrega nueva información";
             this.lblVersion3.Text = "Versión que permite actualizar datos y agrega combo box de marcas";
+            this.lblVersion4.Text = "Versión con capa de persistencia. Implementar eso es opcional";
         }
 
         private void btnVersion2_Click(object sender, EventArgs e)
@@ -34,8 +36,20 @@ namespace EjemploTresCapas2
 
         private void btnVersion3_Click(object sender, EventArgs e)
         {
-            FormVersion3 fromV3 = new FormVersion3();
-            fromV3.ShowDialog();
+            FormVersion3 formV3 = new FormVersion3();
+
+            formV3.ShowDialog();
+        }
+
+        private void lblVersion2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVersion4_Click(object sender, EventArgs e)
+        {
+            FormVersion4 formV4 = new FormVersion4();
+            formV4.ShowDialog();
         }
     }
 }
